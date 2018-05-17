@@ -87,7 +87,7 @@ Database :
 
 # how to run
 
-1. goto directory angularjs-python-mongo under your directory
+1. goto directory fullstack-challenge under your directory
 2. Next task is to run angular-js-client and flask-service using docker
 2. type in terminal :  docker-compose build
 3. type in terminal:  docker-compose up 

@@ -19,6 +19,9 @@ app.config['MONGO_URI'] = 'mongodb://mongodb/testdb2'
 
 mongo = PyMongo(app)
 
+def reverse_string(input_string):
+    return input_string[::-1]
+
 
 @app.route('/todo/api/v1.0/')
 @cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
