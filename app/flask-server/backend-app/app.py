@@ -49,7 +49,8 @@ def add_city_state():
     cityname = request.json['cname']
     state = request.json['state']
     zip = request.json['zip']
-    city_id = cities.insert({'cname': cityname, 'state': state, "zip": zip})
+    userAgent = request.json['userAgent']
+    city_id = cities.insert({'cname': cityname, 'state': state, "zip": zip, 'userAgent': userAgent})
     new_city = cities.find_one({'_id': city_id})
     output = map_city_to_dto(new_city)
     return jsonify({'output': output})
@@ -95,7 +96,8 @@ def map_city_to_dto(q):
             'cname': q['cname'], 
             'state': q['state'], 
             'cnameReversed': q['cname'][::-1], 
-            'zip': q.get('zip', None)
+            'zip': q.get('zip', None),
+            'userAgent': q.get('userAgent', None)
         })
 
 if __name__ == '__main__':

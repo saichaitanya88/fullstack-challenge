@@ -5,7 +5,7 @@
 "use strict";
 
 // added CityService as module dependency
-var CityApp = angular.module("CityApp", ["CityService", "WebGLService"]);
+var CityApp = angular.module("CityApp", ["CityService", "WebGLService", "BrowserTypeService"]);
 
 CityApp.config(['$interpolateProvider', function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
@@ -25,14 +25,14 @@ CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI,
         CityFactoryAPI.refreshCityStateService()
             .then(function (response) {
 
-                    app.citytable = response.data.output;
+                app.citytable = response.data.output;
 
-                    console.log(response.data);
-                    console.log(response.data.output);
+                console.log(response.data);
+                console.log(response.data.output);
 
-                }, function (error) {
-                    console.log('can not get the data.' + error.message);
-                }
+            }, function (error) {
+                console.log('can not get the data.' + error.message);
+            }
             );
 
     };
@@ -42,17 +42,17 @@ CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI,
     // adds a new record
     app.addCityState = function (cityrecord) {
         if (cityrecord.cname !== '' || cityrecord.state !== '') {
-
+            cityrecord = app.applyUserAgent(cityrecord); // Add Navigator User Agent
             CityFactoryAPI.addCityStateService(cityrecord)
                 .then(function (response) {
 
-                        app.citytable.push(response.data.output);
-                        refreshData();
-                        $scope.cityrecord = {};
+                    app.citytable.push(response.data.output);
+                    refreshData();
+                    $scope.cityrecord = {};
 
-                    }, function (error) {
-                        console.log('can not post the cityrecord data.' + error.message);
-                    }
+                }, function (error) {
+                    console.log('can not post the cityrecord data.' + error.message);
+                }
                 );
         }
     };
@@ -63,13 +63,13 @@ CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI,
         CityFactoryAPI.deleteCityStateService(cityrecord)
             .then(function (response) {
 
-                    $scope.cityrecord = response.data.output;
-                    refreshData();
-                    $scope.cityrecord = {};
+                $scope.cityrecord = response.data.output;
+                refreshData();
+                $scope.cityrecord = {};
 
-                }, function (error) {
-                    console.log('can not delete the given cityrecord data.' + error.message);
-                }
+            }, function (error) {
+                console.log('can not delete the given cityrecord data.' + error.message);
+            }
             );
     };
 
@@ -77,16 +77,16 @@ CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI,
     app.editState = function (cityrecord) {
 
         if (cityrecord.cname !== '' || cityrecord.state !== '') {
-
+            cityrecord = app.applyUserAgent(cityrecord);
             CityFactoryAPI.editCityStateService(cityrecord)
                 .then(function (response) {
 
-                        $scope.cityrecord = response.data.output;
-                        refreshData();
+                    $scope.cityrecord = response.data.output;
+                    refreshData();
 
-                    }, function (error) {
-                        console.log('can not edit the cityrecord data.' + error.message);
-                    }
+                }, function (error) {
+                    console.log('can not edit the cityrecord data.' + error.message);
+                }
                 );
         }
 
@@ -100,18 +100,51 @@ CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI,
             CityFactoryAPI.updateCityStateService(cityrecord)
                 .then(function (response) {
 
-                        app.citytable.push(response.data.output);
-                        refreshData();
-                        $scope.cityrecord = {};
+                    app.citytable.push(response.data.output);
+                    refreshData();
+                    $scope.cityrecord = {};
 
-                    }, function (error) {
-                        console.log('can not update the given cityrecord data.' + error.message);
-                    }
+                }, function (error) {
+                    console.log('can not update the given cityrecord data.' + error.message);
+                }
                 );
         }
 
     };
 
+    app.applyUserAgent = function (cityrecord) {
+        cityrecord.userAgent = navigator.userAgent;
+        return cityrecord;
+    }
+
     $scope.webGLEnabled = WebGLService.isWebGLEnabled();
 
 });
+
+CityApp.directive('user-agent-1', function (cityrecord) {
+    return {
+        template: '<div>{{flavor}}</div>',
+        link: function (scope, element, attrs) {
+            attrs.$observe('flavor', function (flavor) {
+                scope.flavor = flavor;
+            });
+        }
+    };
+})
+
+CityApp.directive("userAgent", function (BrowserTypeService) {
+    console.log("useragent", BrowserTypeService.getBrowserType);
+
+    return {
+        restrict: 'EA',
+        template: "<span>{{ua}}</span>",
+        replace: true,
+        scope: {
+            cityrecord: '=',
+            ua: "@"
+        },
+        link: function (scope) {
+            scope.ua = BrowserTypeService.getBrowserType(scope.cityrecord.userAgent);
+        }
+    }
+})
