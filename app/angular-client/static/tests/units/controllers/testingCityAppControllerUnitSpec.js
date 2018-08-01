@@ -4,7 +4,7 @@
 
 
 //Jasmine test caes for controller
-describe('AngularJS Test Suites', function () {
+xdescribe('AngularJS Test Suites', function () {
 
      //mention the name of the app here inside module inside beforeEach
 

@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">9.26% </span>
+        <span class="strong">9.62% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/54</span>
+        <span class='fraction'>5/52</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>0/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/23</span>
+        <span class='fraction'>0/22</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">9.26% </span>
+        <span class="strong">9.62% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/54</span>
+        <span class='fraction'>5/52</span>
       </div>
     </div>
   </div>
@@ -192,7 +192,12 @@
 147
 148
 149
-150</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+150
+151
+152
+153
+154
+155</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -319,9 +324,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -329,16 +338,17 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
@@ -356,7 +366,7 @@ CityApp.config(['$interpolateProvider', <span class="fstat-no" title="function n
 &nbsp;
 &nbsp;
 //Injected factory service 'CityFactoryAPI'
-CityApp.controller("CityAppController", <span class="fstat-no" title="function not covered" >function ($scope, $http, CityFactoryAPI, WebGLService) {</span>
+CityApp.controller("CityAppController", <span class="fstat-no" title="function not covered" >function ($scope, $http, CityFactoryAPI, WebGLService, BrowserTypeService) {</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    $scope.title = "this is just a starting !";</span>
 <span class="cstat-no" title="statement not covered" >    console.info("WebGLService", WebGLService);</span>
@@ -464,23 +474,10 @@ CityApp.controller("CityAppController", <span class="fstat-no" title="function n
 &nbsp;
 });
 &nbsp;
-CityApp.directive('user-agent-1', <span class="fstat-no" title="function not covered" >function (cityrecord) {</span>
-<span class="cstat-no" title="statement not covered" >    return {</span>
-        template: '&lt;div&gt;{{flavor}}&lt;/div&gt;',
-        link: <span class="fstat-no" title="function not covered" >function (scope, element, attrs) {</span>
-<span class="cstat-no" title="statement not covered" >            attrs.$observe('flavor', <span class="fstat-no" title="function not covered" >function (flavor) {</span></span>
-<span class="cstat-no" title="statement not covered" >                scope.flavor = flavor;</span>
-            });
-        }
-    };
-})
-&nbsp;
 CityApp.directive("userAgent", <span class="fstat-no" title="function not covered" >function (BrowserTypeService) {</span>
-<span class="cstat-no" title="statement not covered" >    console.log("useragent", BrowserTypeService.getBrowserType);</span>
-&nbsp;
 <span class="cstat-no" title="statement not covered" >    return {</span>
         restrict: 'EA',
-        template: "&lt;span&gt;{{ua}}&lt;/span&gt;",
+        template: "&lt;b&gt;{{ua}}&lt;/b&gt;",
         replace: true,
         scope: {
             cityrecord: '=',
@@ -490,13 +487,31 @@ CityApp.directive("userAgent", <span class="fstat-no" title="function not covere
 <span class="cstat-no" title="statement not covered" >            scope.ua = BrowserTypeService.getBrowserType(scope.cityrecord.userAgent);</span>
         }
     }
-})</pre></td></tr>
+});
+&nbsp;
+CityApp.directive("zip", <span class="fstat-no" title="function not covered" >function (BrowserTypeService) {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+        restrict: 'EA',
+        template: "&lt;b&gt;{{zip}}&lt;/b&gt;",
+        replace: true,
+        scope: {
+            cityrecord: '=',
+            zip: "@"
+        },
+        link: <span class="fstat-no" title="function not covered" >function (scope) {</span>
+<span class="cstat-no" title="statement not covered" >            scope.zip = scope.cityrecord.zip || "N/A"</span>
+            // if you want to overwrite the actual object... 
+            // scope.cityrecord.zip = scope.cityrecord.zip || "N/A" 
+            // but since we do not write records to the api.. do we need to modify the object? 
+        }
+    }
+});</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Aug 01 2018 14:39:28 GMT-0400 (EDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Aug 01 2018 17:16:49 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../prettify.js"></script>

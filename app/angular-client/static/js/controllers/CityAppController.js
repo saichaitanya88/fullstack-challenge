@@ -13,7 +13,7 @@ CityApp.config(['$interpolateProvider', function ($interpolateProvider) {
 
 
 //Injected factory service 'CityFactoryAPI'
-CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI, WebGLService) {
+CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI, WebGLService, BrowserTypeService) {
 
     $scope.title = "this is just a starting !";
     console.info("WebGLService", WebGLService);
@@ -120,17 +120,6 @@ CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI,
     $scope.webGLEnabled = WebGLService.isWebGLEnabled();
 
 });
-
-CityApp.directive('user-agent-1', function (cityrecord) {
-    return {
-        template: '<div>{{flavor}}</div>',
-        link: function (scope, element, attrs) {
-            attrs.$observe('flavor', function (flavor) {
-                scope.flavor = flavor;
-            });
-        }
-    };
-})
 
 CityApp.directive("userAgent", function (BrowserTypeService) {
     return {

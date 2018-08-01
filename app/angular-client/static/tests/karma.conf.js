@@ -23,6 +23,8 @@ module.exports = function (config) {
             '../bower_components/angular-mocks/angular-mocks.js',
             '../js/controllers/CityAppController.js',
             '../js/services/CityService.js',
+            '../js/controllers/BrowserTypeService.js',
+            '../js/controllers/WebGLService.js',
             'units/controllers/*.js',
             'units/services/*.js',
         ],
