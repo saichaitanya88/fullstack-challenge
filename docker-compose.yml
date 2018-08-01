@@ -19,10 +19,11 @@ services:
 
   mongodb:
     image: mongo
-    command: mongod
+    command: mongod --bind_ip_all
+    # command: mongod --fork --logpath /var/log/mongodb.log --bind_ip_all
     ports:
-      - "27019:27017"
-      - "28019:28017"
+      - "0.0.0.0:27019:27017"
+      - "0.0.0.0:28019:28017"
     expose:
       - "27017"
       - "28017"

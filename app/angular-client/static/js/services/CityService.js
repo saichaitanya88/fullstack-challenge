@@ -14,31 +14,26 @@ CityService.factory('CityFactoryAPI', ['$http', function ($http) {
     var CityFactoryAPI = {};
 
     CityFactoryAPI.refreshCityStateService = function () {
-
         return $http({method: 'GET', url: baseURL});
     };
 
 
     CityFactoryAPI.addCityStateService = function (cityrecord) {
-
         return $http({method: 'POST', url: baseURL, data: cityrecord});
     };
 
 
     CityFactoryAPI.deleteCityStateService = function (cityrecord) {
-
         return $http({method: 'DELETE', url: baseURL + cityrecord.cname});
     };
 
 
     CityFactoryAPI.editCityStateService = function (cityrecord) {
-
         return $http({method: 'GET', url: baseURL + cityrecord.cname});
     };
 
 
     CityFactoryAPI.updateCityStateService = function (cityrecord) {
-
         return $http({
             method: 'PUT', url: baseURL + cityrecord.cname, data: {
                 "cname": cityrecord.cname,

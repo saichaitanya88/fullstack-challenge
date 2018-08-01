@@ -11,10 +11,11 @@ app = Flask(__name__, static_path='/static')
 
 cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
 
-app.config['MONGO_DBNAME'] = 'rest_python_mongo'
-"""
-app.config['MONGO_URI'] = 'mongodb://pratikdhage:thedarkknightrises@ds125113.mlab.com:25113/angularjs-python-mongo'
-"""
+# app.config['MONGO_DBNAME'] = 'rest_python_mongo'
+# """
+# app.config['MONGO_URI'] = 'mongodb://pratikdhage:thedarkknightrises@ds125113.mlab.com:25113/angularjs-python-mongo'
+# """
+# app.config['MONGO_URI'] = 'mongodb://127.0.0.1:27017/testdb2' #  # mongodb://mongodb/testdb2
 app.config['MONGO_URI'] = 'mongodb://mongodb/testdb2'
 
 mongo = PyMongo(app)
@@ -36,7 +37,7 @@ def get_all_city_records():
     cities = mongo.db.cities
     output = []
     for q in cities.find():
-        output.append({'cname': q['cname'], 'state': q['state']})
+        output.append(map_city_to_dto(q))
     return jsonify({'output': output})
 
 
@@ -49,7 +50,7 @@ def add_city_state():
     state = request.json['state']
     city_id = cities.insert({'cname': cityname, 'state': state})
     new_city = cities.find_one({'_id': city_id})
-    output = {'cname': new_city['cname'], 'state': new_city['state']}
+    output = map_city_to_dto(new_city)
     return jsonify({'output': output})
 
 
@@ -60,7 +61,7 @@ def get_city_record(cname):
     cities = mongo.db.cities
     q = cities.find_one({'cname': cname})
     if q:
-        output = {'cname': q['cname'], 'state': q['state']}
+        output = map_city_to_dto(q)
     else:
         output = 'Sorry !....record not exists.'
     return jsonify({'output': output})
@@ -70,7 +71,6 @@ def get_city_record(cname):
 @app.route('/todo/api/v1.0/cities/<string:cname>', methods=['PUT'])
 @cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
 def update_state(cname):
-    cities = mongo.db.cities
     data = request.get_json()
     mongo.db.cities.update({'cname': cname}, {'$set': data})
     return jsonify({'output': "success"})
@@ -89,6 +89,8 @@ def delete_city_record(cname):
         output = 'Sorry !....no results found.'
     return jsonify({'output': output})
 
+def map_city_to_dto(q):
+    return {'cname': q['cname'], 'state': q['state'], 'cnameReversed': q['cname'][::-1], 'zip': q.get('zip', None)}
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8001, debug=True)
