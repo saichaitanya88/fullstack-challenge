@@ -32,14 +32,16 @@ Challenge:
 
 Bonus Points:
     Catch and gracefully handle API errors client side 
+        - I'll use alerts for now.. nothing too fancy. 
     Write unit tests for features add in the challenge
         - WebGLService
         - BrowserTypeService
         - 
     Create an Angular directive that will populate the zip codes when not present in the db
     Modify / customize the header responses from the server
+        - OK
     Make the DB is persistent
-        - Possible if we mount a folder into docker-container
+        - Possible if we mount a folder into docker-container - OK
         - https://stackoverflow.com/questions/44888292/saving-mongodb-on-volume-using-docker-compose
 
 
@@ -47,10 +49,10 @@ Development Notes (possibly not relevant for the test):
     Several things are missing on the server-side:
         - Field data type checks
         - PUT assumes success. Doesn't work when we update non-existing records. 
+        - direct access to repository layer from controller endpoints.. we can use repository instead.
     Several things are missing in the front-end:
         - user can edit records while save in progress
         - no-feedback that records are being loaded in the background
-        - 
     Question for team: 
         How do you manage the field names - naming convention for python is snake_case, and javascript is camelCase. Which convention is followed?
 

@@ -53,7 +53,7 @@ def add_city_state():
     city_id = cities.insert({'cname': cityname, 'state': state, "zip": zip, 'userAgent': userAgent})
     new_city = cities.find_one({'_id': city_id})
     output = map_city_to_dto(new_city)
-    return jsonify({'output': output})
+    return jsonify({'output': output}), 201
 
 
 # HTTP GET request for getting a particular city
@@ -62,11 +62,13 @@ def add_city_state():
 def get_city_record(cname):
     cities = mongo.db.cities
     q = cities.find_one({'cname': cname})
+    status_code = 200
     if q:
         output = map_city_to_dto(q)
     else:
         output = 'Sorry !....record not exists.'
-    return jsonify({'output': output})
+        status_code = 404
+    return jsonify({'output': output}), status_code
 
 
 # HTTP PUT request for modifying existing city
@@ -74,8 +76,16 @@ def get_city_record(cname):
 @cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
 def update_state(cname):
     data = request.get_json()
-    mongo.db.cities.update({'cname': cname}, {'$set': data})
-    return jsonify({'output': "success"})
+    q = mongo.db.cities.find_one({'cname': cname})
+    print(q)
+    status_code = 200
+    if q:
+        mongo.db.cities.update({'cname': cname}, {'$set': data})
+        output = 'success'
+    else:
+        output = 'Sorry !....no results found.'
+        status_code = 404
+    return jsonify({'output': output}), 404
 
 
 # HTTP DELETE request for deleting/removing a particular city
@@ -84,12 +94,14 @@ def update_state(cname):
 def delete_city_record(cname):
     cities = mongo.db.cities
     q = cities.find_one({'cname': cname})
+    status_code = 200
     if q:
         output = q['cname']
         mongo.db.cities.delete_one({'cname': cname})
     else:
         output = 'Sorry !....no results found.'
-    return jsonify({'output': output})
+        status_code = 404
+    return jsonify({'output': output}), status_code
 
 def map_city_to_dto(q):
     return ({
