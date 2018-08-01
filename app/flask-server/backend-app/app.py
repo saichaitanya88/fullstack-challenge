@@ -90,7 +90,12 @@ def delete_city_record(cname):
     return jsonify({'output': output})
 
 def map_city_to_dto(q):
-    return {'cname': q['cname'], 'state': q['state'], 'cnameReversed': q['cname'][::-1], 'zip': q.get('zip', None)}
+    return ({
+            'cname': q['cname'], 
+            'state': q['state'], 
+            'cnameReversed': q['cname'][::-1], 
+            'zip': q.get('zip', None)
+        })
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8001, debug=True)

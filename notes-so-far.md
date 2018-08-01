@@ -3,17 +3,19 @@ Issues encountered:
 2. had to create and update my machine to make sure that dockerfile allows running docker separately so that I can build app.py without problems
 3. had to test again with docker-compose.. same connectivity issues. 
 4. Angular1 is so old! :) I haven't used it in years. 
-
+5. Setting up docker on my laptop - version 1.11.2 -> latest
+6. package.json missing on the angular-client folder. I had trouble setting up my npm test command. had error module `lib/cli` not found
 
 Challenge:
     For each city / state render the field in a column in the table as it is recorded in MongoDB.
         - Isn't this already implemented in the starter code? 
     For each city render an additional column in the table where the string is reversed. This operation should be executed server side.
         - server-side ok
-        - need to display it on the client-side
+        - 
     Add a new field to capture zipcodes to the application 
         - server-side ok
-        - 
+        - client-side ok
+        - Edit zipcode?
     Display to the user if their browser has webgl enabled
         - From: https://developer.mozilla.org/en-US/docs/Learn/WebGL/By_example/Detect_WebGL
         ```
