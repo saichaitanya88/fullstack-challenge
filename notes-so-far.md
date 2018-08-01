@@ -32,11 +32,11 @@ Challenge:
 
 Bonus Points:
     Catch and gracefully handle API errors client side 
-        - I'll use alerts for now.. nothing too fancy. 
+        - Errors are already logging to console; I coule use some suggestions on what the user experience should be when gracefully handling errors. 
     Write unit tests for features add in the challenge
         - WebGLService
         - BrowserTypeService
-        - 
+        
     Create an Angular directive that will populate the zip codes when not present in the db
     Modify / customize the header responses from the server
         - OK
