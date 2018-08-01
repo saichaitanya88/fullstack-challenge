@@ -5,7 +5,7 @@
 "use strict";
 
 // added CityService as module dependency
-var CityApp = angular.module("CityApp", ["CityService"]);
+var CityApp = angular.module("CityApp", ["CityService", "WebGLService"]);
 
 CityApp.config(['$interpolateProvider', function ($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
@@ -13,10 +13,10 @@ CityApp.config(['$interpolateProvider', function ($interpolateProvider) {
 
 
 //Injected factory service 'CityFactoryAPI'
-CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI) {
+CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI, WebGLService) {
 
     $scope.title = "this is just a starting !";
-
+    console.info("WebGLService", WebGLService);
     var app = this;
 
     // display all data
@@ -112,5 +112,6 @@ CityApp.controller("CityAppController", function ($scope, $http, CityFactoryAPI)
 
     };
 
+    $scope.webGLEnabled = WebGLService.isWebGLEnabled();
 
 });

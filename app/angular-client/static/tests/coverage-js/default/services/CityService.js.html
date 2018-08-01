@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.25% </span>
+        <span class="strong">12.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/16</span>
+        <span class='fraction'>2/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/6</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.25% </span>
+        <span class="strong">12.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/16</span>
+        <span class='fraction'>2/16</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -102,31 +102,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,7 +135,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Created by pratikdhage on 12/15/17.
@@ -147,33 +147,33 @@ var CityService = angular.module('CityService', []);
 &nbsp;
 //created angular Service factory called 'CityFactoryAPI'
 &nbsp;
-CityService.factory('CityFactoryAPI', ['$http', function ($http) {
+CityService.factory('CityFactoryAPI', ['$http', <span class="fstat-no" title="function not covered" >function ($http) {</span>
 &nbsp;
-    var baseURL = 'http://0.0.0.0:8001/todo/api/v1.0/cities/';
-    var CityFactoryAPI = {};
+<span class="cstat-no" title="statement not covered" >    var baseURL = 'http://0.0.0.0:8001/todo/api/v1.0/cities/';</span>
+<span class="cstat-no" title="statement not covered" >    var CityFactoryAPI = {};</span>
 &nbsp;
-    CityFactoryAPI.refreshCityStateService = function () {
-        return $http({method: 'GET', url: baseURL});
+<span class="cstat-no" title="statement not covered" >    CityFactoryAPI.refreshCityStateService = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        return $http({method: 'GET', url: baseURL});</span>
     };
 &nbsp;
 &nbsp;
-    CityFactoryAPI.addCityStateService = function (cityrecord) {
-        console.log("cityrecord", cityrecord);
-        return $http({method: 'POST', url: baseURL, data: cityrecord});
+<span class="cstat-no" title="statement not covered" >    CityFactoryAPI.addCityStateService = <span class="fstat-no" title="function not covered" >function (cityrecord) {</span></span>
+<span class="cstat-no" title="statement not covered" >        console.log("cityrecord", cityrecord);</span>
+<span class="cstat-no" title="statement not covered" >        return $http({method: 'POST', url: baseURL, data: cityrecord});</span>
     };
 &nbsp;
 &nbsp;
-    CityFactoryAPI.deleteCityStateService = <span class="fstat-no" title="function not covered" >function (cityrecord) {</span>
+<span class="cstat-no" title="statement not covered" >    CityFactoryAPI.deleteCityStateService = <span class="fstat-no" title="function not covered" >function (cityrecord) {</span></span>
 <span class="cstat-no" title="statement not covered" >        return $http({method: 'DELETE', url: baseURL + cityrecord.cname});</span>
     };
 &nbsp;
 &nbsp;
-    CityFactoryAPI.editCityStateService = <span class="fstat-no" title="function not covered" >function (cityrecord) {</span>
+<span class="cstat-no" title="statement not covered" >    CityFactoryAPI.editCityStateService = <span class="fstat-no" title="function not covered" >function (cityrecord) {</span></span>
 <span class="cstat-no" title="statement not covered" >        return $http({method: 'GET', url: baseURL + cityrecord.cname});</span>
     };
 &nbsp;
 &nbsp;
-    CityFactoryAPI.updateCityStateService = <span class="fstat-no" title="function not covered" >function (cityrecord) {</span>
+<span class="cstat-no" title="statement not covered" >    CityFactoryAPI.updateCityStateService = <span class="fstat-no" title="function not covered" >function (cityrecord) {</span></span>
 <span class="cstat-no" title="statement not covered" >        return $http({</span>
             method: 'PUT', url: baseURL + cityrecord.cname, data: {
                 "cname": cityrecord.cname,
@@ -182,7 +182,7 @@ CityService.factory('CityFactoryAPI', ['$http', function ($http) {
         });
     };
 &nbsp;
-    return CityFactoryAPI;
+<span class="cstat-no" title="statement not covered" >    return CityFactoryAPI;</span>
 &nbsp;
 }]);</pre></td></tr>
 </table></pre>
@@ -190,7 +190,7 @@ CityService.factory('CityFactoryAPI', ['$http', function ($http) {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Aug 01 2018 07:37:49 GMT-0400 (EDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Aug 01 2018 07:57:10 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../prettify.js"></script>

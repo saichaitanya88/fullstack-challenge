@@ -10,6 +10,11 @@
 
 <body style="background-color: transparent">
     <div class="container" ng-app="CityApp" ng-controller="CityAppController as CityApp">
+        <div ng-switch="webGLEnabled">
+            <div ng-switch-when="true">WebGL enabled</div>
+            <div ng-switch-when="false">WebGL disabled</div>
+            <div ng-switch-default>Checking WebGL</div>
+        </div>
         <h1>CITY RECORDS?!</h1>
         <br>
         <br>
@@ -78,6 +83,7 @@
     </div>
     <script src="bower_components/angular/angular.js"></script>
     <script src="js/services/CityService.js"></script>
+    <script src="js/services/WebGLService.js"></script>
     <script src="js/controllers/CityAppController.js"></script>
 </body>
 
