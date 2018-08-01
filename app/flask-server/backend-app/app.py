@@ -48,7 +48,7 @@ def add_city_state():
     cities = mongo.db.cities
     cityname = request.json['cname']
     state = request.json['state']
-    zip = request.json['zip']
+    zip = request.json.get('zip', None)
     userAgent = request.json['userAgent']
     city_id = cities.insert({'cname': cityname, 'state': state, "zip": zip, 'userAgent': userAgent})
     new_city = cities.find_one({'_id': city_id})

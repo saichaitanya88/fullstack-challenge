@@ -133,11 +133,9 @@ CityApp.directive('user-agent-1', function (cityrecord) {
 })
 
 CityApp.directive("userAgent", function (BrowserTypeService) {
-    console.log("useragent", BrowserTypeService.getBrowserType);
-
     return {
         restrict: 'EA',
-        template: "<span>{{ua}}</span>",
+        template: "<b>{{ua}}</b>",
         replace: true,
         scope: {
             cityrecord: '=',
@@ -147,4 +145,22 @@ CityApp.directive("userAgent", function (BrowserTypeService) {
             scope.ua = BrowserTypeService.getBrowserType(scope.cityrecord.userAgent);
         }
     }
-})
+});
+
+CityApp.directive("zip", function (BrowserTypeService) {
+    return {
+        restrict: 'EA',
+        template: "<b>{{zip}}</b>",
+        replace: true,
+        scope: {
+            cityrecord: '=',
+            zip: "@"
+        },
+        link: function (scope) {
+            scope.zip = scope.cityrecord.zip || "N/A"
+            // if you want to overwrite the actual object... 
+            // scope.cityrecord.zip = scope.cityrecord.zip || "N/A" 
+            // but since we do not write records to the api.. do we need to modify the object? 
+        }
+    }
+});

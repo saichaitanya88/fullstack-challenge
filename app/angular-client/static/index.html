@@ -42,7 +42,7 @@
                                 <input class="form-control" ng-model="cityrecord.state" name="stateName" size="default" required>
                             </td>
                             <td>
-                                <input class="form-control" ng-model="cityrecord.zip" name="zipName" size="default" required>
+                                <input class="form-control" ng-model="cityrecord.zip" name="zipName" size="default">
                             </td>
                             <td></td>
                             <td></td>
@@ -65,7 +65,8 @@
                                 <b> {[{ cityrecord.state }]} </b>
                             </td>
                             <td>
-                                <b> {[{ cityrecord.zip }]} </b>
+                                <!-- <b> {[{ cityrecord.zip }]} </b> -->
+                                <zip cityrecord="cityrecord"></zip>
                             </td>
                             <td>
                                 <b> {[{ cityrecord.cnameReversed }]} </b>
