@@ -27,4 +27,5 @@ services:
     expose:
       - "27017"
       - "28017"
-
+    volumes: 
+      - /data/db:/data/db

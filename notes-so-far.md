@@ -6,6 +6,7 @@ Issues encountered:
 5. Setting up docker on my laptop - version 1.11.2 -> latest
 6. package.json missing on the angular-client folder. I had trouble setting up my npm test command. had error module `lib/cli` not found
 
+
 Challenge:
     For each city / state render the field in a column in the table as it is recorded in MongoDB.
         - Isn't this already implemented in the starter code? 
@@ -32,10 +33,14 @@ Challenge:
 Bonus Points:
     Catch and gracefully handle API errors client side 
     Write unit tests for features add in the challenge
+        - WebGLService
+        - BrowserTypeService
+        - 
     Create an Angular directive that will populate the zip codes when not present in the db
     Modify / customize the header responses from the server
     Make the DB is persistent
         - Possible if we mount a folder into docker-container
+        - https://stackoverflow.com/questions/44888292/saving-mongodb-on-volume-using-docker-compose
 
 
 Development Notes (possibly not relevant for the test):
