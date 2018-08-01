@@ -21,6 +21,7 @@
                             <th>CITY</th>
                             <th>STATE</th>
                             <th>ZIP</th>
+                            <th>CITY-REVERSED</th>
                             <th>Computer Type</th>
                             <th>Action</th>
                             <th>Modify Action</th>
@@ -37,6 +38,7 @@
                             <td>
                                 <input class="form-control" ng-model="cityrecord.zip" name="zipName" size="default" required>
                             </td>
+                            <td></td>
                             <td>
                                 <button class="btn btn-primary" ng-click="CityApp.addCityState(cityrecord)" ng-disabled="cityForm.$invalid">
                                     Add New Record
@@ -59,7 +61,7 @@
                                 <b> {[{ cityrecord.zip }]} </b>
                             </td>
                             <td>
-                                <b> {[{ cityrecord.userAgent }]} </b>
+                                <b> {[{ cityrecord.cnameReversed }]} </b>
                             </td>
                             <td>
                                 <button class="btn btn-danger" ng-click="CityApp.deleteCityState(cityrecord)">Delete Record

@@ -11,10 +11,10 @@ Challenge:
         - Isn't this already implemented in the starter code? 
     For each city render an additional column in the table where the string is reversed. This operation should be executed server side.
         - server-side ok
-        - 
+        - client-side ok
     Add a new field to capture zipcodes to the application 
         - server-side ok
-        - client-side
+        - client-side ok
     Display to the user if their browser has webgl enabled
         - From: https://developer.mozilla.org/en-US/docs/Learn/WebGL/By_example/Detect_WebGL
         ```
@@ -46,6 +46,8 @@ Development Notes (possibly not relevant for the test):
         - user can edit records while save in progress
         - no-feedback that records are being loaded in the background
         - 
+    Question for team: 
+        How do you manage the field names - naming convention for python is snake_case, and javascript is camelCase. Which convention is followed?
 
 Other notes: 
 startup mongodb docker:
@@ -53,3 +55,5 @@ startup mongodb docker:
 	docker run mongodb
 startup flask
 startup each project separately with dockerfile runs
+
+
