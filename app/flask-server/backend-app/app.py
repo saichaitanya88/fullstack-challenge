@@ -48,7 +48,8 @@ def add_city_state():
     cities = mongo.db.cities
     cityname = request.json['cname']
     state = request.json['state']
-    city_id = cities.insert({'cname': cityname, 'state': state})
+    zip = request.json['zip']
+    city_id = cities.insert({'cname': cityname, 'state': state, "zip": zip})
     new_city = cities.find_one({'_id': city_id})
     output = map_city_to_dto(new_city)
     return jsonify({'output': output})

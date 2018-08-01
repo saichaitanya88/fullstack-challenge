@@ -19,6 +19,7 @@ CityService.factory('CityFactoryAPI', ['$http', function ($http) {
 
 
     CityFactoryAPI.addCityStateService = function (cityrecord) {
+        console.log("cityrecord", cityrecord);
         return $http({method: 'POST', url: baseURL, data: cityrecord});
     };
 

@@ -14,8 +14,7 @@ Challenge:
         - 
     Add a new field to capture zipcodes to the application 
         - server-side ok
-        - client-side ok
-        - Edit zipcode?
+        - client-side
     Display to the user if their browser has webgl enabled
         - From: https://developer.mozilla.org/en-US/docs/Learn/WebGL/By_example/Detect_WebGL
         ```
